@@ -40,6 +40,40 @@
     a:hover {
       text-decoration: underline;
     }
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
   </style>
 </head>
 <body>
@@ -58,9 +92,44 @@
     </p>
     <p>
       Feel free to reach out: <a href="mailto:bugbounty@judymagleo.com">bugbounty@judymagleo.com</a>
+      <p>🏆 <a href="#" id="openModal">View Recognitions</a></p>
     </p>
     
+    
   </div>
-  
+  <div id="hofModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Hall of Fame</h2>
+    <ul>
+      <li><a href="https://bughunters.google.com/profile/3cfc4219-704e-4101-af3b-d1e010eb2fd6" target="_blank">Google Vulnerability Disclosure Program</a></li>
+      <li><a href="https://help.ipaidthat.io/fr/articles/5170214-vulnerability-disclosure-program" target="_blank">IPaidThat VDP Hall of Fame</a></li>
+      <li><a href="https://teachworks.com/responsible-disclosure" target="_blank">Teachworks Responsible Disclosure Contributor</a></li>
+      <li><a href="https://ably.com/acknowledgements" target="_blank">Ably Bug Bounty Program Acknowledgement</a></li>
+      <li><a href="https://hopin.com/hopin-events/security/hall-of-fame" target="_blank">Hopin VDP Hall of Fame</a></li>
+      <!-- Add more as needed -->
+    </ul>
+  </div>
+</div>
+<script>
+  const modal = document.getElementById("hofModal");
+  const btn = document.getElementById("openModal");
+  const span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function(e) {
+    e.preventDefault();
+    modal.style.display = "block";
+  }
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
 </body>
 </html>
